@@ -10,7 +10,7 @@
 <script>
   let jogador1 = parseFloat(prompt('Digite um número'))
   let jogador2 = parseFloat(prompt('Digite outro número'))
-  let magicNumber = parseInt(Math.random * 2)
+  let magicNumber = parseInt(Math.random() * 2)
 
   if (jogador1 > jogador2 && magicNumber == 1 || jogador1 < jogador2 && magicNumber == 0) {
     alert('Jogador 1 venceu!')
