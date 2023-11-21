@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica de Programação Javascript</title>
+</head>
+<body>
+  <h1>Lógica de Programação Javascript</h1>
+  <script>
+    let numero = prompt('Digite um número')
+    numero = parseInt(numero)
+
+    let indice = 0
+
+    while (indice <= 1000) {
+      document.write(numero + ' X ' + indice + ' = ' + (numero * indice) + '<br>')
+
+      if (indice % 10 === 0 && indice > 0) {
+        document.write('<hr>')
+      }
+    }
+
+  </script>
+</body>
+</html>
