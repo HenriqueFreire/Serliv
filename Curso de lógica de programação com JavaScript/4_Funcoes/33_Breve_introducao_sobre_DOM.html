@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica de Programação Javascript</title>
+</head>
+<body>
+  <h1>Lógica de Programação Javascript</h1>
+  <button>Criar Tabuada</button>
+  <button>Tabuada</button>
+  <div id="output"></div>
+  <script>
+
+    let output = document.querySelector('#output')
+
+    function mostrarTabuada() {
+      let n = parseFloat(prompt('digite um número'))
+      let msg = ''
+      for (let i = 0; i <= 1000; i++) {
+        if (msg === '') {
+          msg = `${n} X ${i} = ${n * i} <br>`
+        } else{ msg += `${n} X ${i} = ${n * i} <br>` }        
+      }
+
+      output.innerHTML = msg
+    }
+
+  </script>
+</body>
+</html>
