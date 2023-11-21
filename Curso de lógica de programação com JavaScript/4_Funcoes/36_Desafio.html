@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica de Programação Javascript</title>
+</head>
+<body>
+  <h1>Lógica de Programação Javascript</h1>
+  <button onclick="organizarNumeros('+')">+</button>
+  <button onclick="organizarNumeros('-')">-</button>
+  <button onclick="organizarNumeros('*')">x</button>
+  <button onclick="organizarNumeros('/')">/</button>
+  <div id="output"></div>
+  <script>
+
+    let n1 = null
+
+    function mostrarNaTela(content) {
+      let output = document.querySelector('#output')
+      output.innerHTML = ''
+      output.innerHTML = content
+    }
+
+    function calcular(number1, number2, signal) {
+      switch (signal) {
+        case '+': return number1 + number2;                   
+        case '-': return number1 - number2;          
+        case '*': return number1 * number2;      
+        case '/': return number1 / number2;        
+      }
+    }
+
+    function organizarNumeros(signal) {
+      let n2 = null
+
+      if (n1 == null) {
+        n1 = parseFloat(prompt('Digite um número'))
+        mostrarNaTela(n1)
+
+      } else {
+        n2 = parseFloat(prompt('Digite outro número'))
+        n1 = calcular(n1, n2, signal)
+
+        mostrarNaTela(n1)
+      }
+    }
+
+    organizarNumeros()
+  </script>
+</body>
+</html>
