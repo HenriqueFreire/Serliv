@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica de Programação Javascript</title>
+</head>
+<body>
+  <h1>Lógica de Programação Javascript</h1>
+  <button onclick="mostrarAreaAlert()">Mostrar área no alert</button>
+  <button onclick="mostrarAreaOutput()">Mostrar área no output</button>
+  <div id="output"></div>
+  <script>
+
+    function calculaArea(largura, comprimento) {
+      return largura * comprimento
+    }
+
+    function capturaMedidas() {
+      let largura = parseFloat(prompt('Digite a largura'))
+      let comprimento = parseFloat(prompt('Digite a comprimento'))    
+      const area = calculaArea(largura, comprimento)
+
+      return area
+    }
+
+    
+    function mostrarAreaOutput() {
+      let output = document.querySelector('#output')
+      output.innerHTML = `Área Total: ${capturaMedidas()}m²`
+    }
+
+    function mostrarAreaAlert() {
+      alert(`Área Total: ${capturaMedidas()}m²`)
+    }
+
+    
+
+  </script>
+</body>
+</html>
