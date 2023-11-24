@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica de programação com Javascript</title>
+</head>
+<body>
+  <h1>Lógica de programação com Javascript</h1>
+  <button onclick="mostrarAreaAlert()">Mostrar área no Alert</button>
+  <button onclick="mostrarAreaOutput()">Mostrar área no Output</button>
+  <div id="output"></div>
+  <script>
+
+    function calcularArea(largura, comprimento) {
+      let area = largura * comprimento
+
+      if (isNaN(area)) {
+        throw new Error("A largura e o comprimento precisam ser valores numéricos")
+      }
+
+      return area
+    }
+
+    function capturaMedidas(params) {
+      const largura = parseFloat(prompt('Digite a largura.'))
+      const comprimento = parseFloat(prompt('Digite o comprimento.'))
+      
+      try {
+        const area = calcularArea(largura, comprimento)
+      } catch (error) {
+        alert(error)
+        return 0
+      }
+    }
+
+    function mostrarAreaOutput() {
+      const output = document.querySelector('#output')
+      output.innerhtml = `Área total: ${capturaMedidas()}m³`
+    }
+
+    function mostrarAreaAlert() {
+      alert(`Área total: ${capturaMedidas()}m³`)
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica de programação com Javascript</title>
+</head>
+<body>  
+  <h1>Lógica de programação com Javascript</h1>
+  <button onclick="mostrarAreaAlert()">Mostrar área no Alert</button>
+  <button onclick="mostrarAreaOutput()">Mostrar área no Output</button>
+  <div id="output"></div>
+  <script>
+
+function mostrarAreaAlert(){
+            
+            let largura = prompt('digite a largura');
+            largura = parseFloat(largura);
+
+            let altura = prompt('digite a altura');
+            altura = parseFloat(altura);
+            
+            try{
+                let area = calcularArea(largura, altura);
+            }catch(e){
+                console.dir(e);
+                console.log(e);
+                area = e;
+            }
+            
+            alert('a área total é: ' + area );
+        }
+        
+        function mostrarAreaOutput(){
+            let largura = prompt('digite a largura');
+            largura = parseFloat(largura);
+
+            let altura = prompt('digite a altura');
+            altura = parseFloat(altura);
+            
+            try{
+                let area = calcularArea(largura, altura);
+            } catch(e){
+                area = e;
+            }
+            
+            document.querySelector('#output').innerHTML = 'a área total é: ' + area;    
+            
+        }
+        
+        mostrarAreaAlert();
+        
+        
+        function calcularArea(l, a){
+            if (l === undefined || a === undefined){
+                throw new Error('calcularArea precisa receber dois números');
+            }
+            
+            if( isNaN(l) || isNaN(a) ){
+                throw new Error('apenas números')
+            }
+            return l * a;
+        }
+        
+    </script>
+    
+</html>
+
+  </script>
+</body>
+</html>
