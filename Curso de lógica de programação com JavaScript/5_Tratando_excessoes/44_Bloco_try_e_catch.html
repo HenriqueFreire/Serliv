@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica de Programação Javascript</title>
+</head>
+<body>
+  <h1>Lógica de Programação Javascript</h1>
+  <button onclick="iniciarClaculo('+')">+</button>
+  <button onclick="iniciarClaculo('-')">-</button>
+  <button onclick="iniciarClaculo('*')">x</button>
+  <button onclick="iniciarClaculo('/')">/</button>
+  <div id="output"></div>
+  <script>
+
+    let n1 = prompt('Digite um número.')
+    n1 = parseFloat(n1)
+
+    escreve(n1)
+
+    function escreve(msg) {
+      let output = document.querySelector('#output')
+      output.innerhtml = msg
+    }
+
+    function calcular(simbolo, n1, n2) {
+      let numeroCalculado = null
+      
+      if (simbolo !== '+' && simbolo !== '-' && simbolo !== '*' && simbolo !== '/') {
+        throw new Error('Utilize sinais válidos')
+      }
+
+      if (isNaN(n1) || isNaN(n2)) {
+        throw new Error('Insira somente valore numéricos')
+      }
+
+      switch (simbolo) {
+        case '+': numeroCalculado = n1 + n2; break;
+        case '-': numeroCalculado = n1 - n2; break;
+        case '*': numeroCalculado = n1 * n2; break;
+        case '/': numeroCalculado = n1 / n2; break;   
+      }
+
+      return numeroCalculado
+    }
+
+    function iniciarCalculo(simbolo) {
+      let n1 = parseFloat(document.querySelector('#output').textContent)      
+      let n2 = parseFloat(prompt('Digite um número'))
+      try {
+        let msg = calcular(simbolo, n1. n2)  
+      } catch (error) {
+        alert(error)
+      }
+      
+      escreve(msg)
+    }
+  </script>
+</body>
+</html>
