@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica de programação com Javascript</title>
+</head>
+<body>
+  <h1>Lógica de programação com Javascript</h1>
+  <div id="output"></div>
+  <script>
+    let output = document.getElementById('output')
+    let produtos = ['caneta', 'lápis', 'tesoura', 'borracha', 'caderno', 'livro']
+    let msg = ''
+
+    for (let i = 0; i < produtos.length; i++) {
+      msg += `produto ${i + 1}: ${produtos[i]}<br>`      
+    }
+
+    output.innerHTML = msg
+  </script>
+</body>
+</html>
