@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica de programção com Javascript</title>
+</head>
+<body>
+  <h1>Lógica de programação com Javascript</h1>
+  <div id="output"></div>
+  <script>
+    let output = document.getElementById('output')
+    let numbers = [25, 30, 45, 28,0, 78, 64]
+    let total = 0
+
+    for (let i = 0; i < numbers.length; i++) {
+      if (numbers[i] % 2 === 0) {
+        total += numbers[i]
+      }      
+    }
+
+    output.innerHTML = `Total da soma dos pares é ${total}`
+  </script>
+</body>
+</html>

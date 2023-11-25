@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica de programação com Javascript</title>
+</head>
+<body>
+  <h1>Lógica de programação com Javascript</h1>
+  <div id="output"></div>
+  <script>
+
+    let numeros = new Array(1, 2, 3, 5, 2)
+    let somaDosPares = somaDosPares(numeros)
+
+    alert ('A soma total é: ' + somaDosPares)
+
+    function somaDosPares(arr) {
+      let soma = 0
+      for (let i = 0; i < arr.length; i++) {
+        console.log(i)
+        console.log(arr[i])
+
+        if (!isNaN(arr[i]) && arr[i] % 2 === 0) {
+          soma += arr[i]
+        }
+        
+      }
+    }
+
+  </script>
+</body>
+</html>
