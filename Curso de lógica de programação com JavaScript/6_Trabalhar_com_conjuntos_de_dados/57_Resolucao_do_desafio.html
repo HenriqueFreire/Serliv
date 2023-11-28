@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica de programação com Javascript</title>
+</head>
+<body>
+  <h1>Lógica de programação com Javascript</h1>
+  <div id="output"></div>
+  <script>
+    let user1 = new Object()
+    user1.nome = 'Maria'
+    user1.email = 'Maria@server.com'
+  
+    let user1 = new Object()
+    user1.nome = 'João'
+    user1.email = 'Joao@server.com'
+
+    let user1 = new Object()
+    user1.nome = 'José'
+    user1.email = 'Jose@server.com'
+
+    let users = new Array(user1, user2, user3)
+
+    console.log(users)
+
+    let msg = ''
+    let indice = 0
+
+    while (users[indice]) {
+      console.log(users[indice].nome)
+      msg += users[indice].nome + '-' + users[indice].email + '<br>'
+      indice++
+    }
+
+    document.querySelector('#output').innerHTML = msg
+  </script>
+</body>
+</html>
