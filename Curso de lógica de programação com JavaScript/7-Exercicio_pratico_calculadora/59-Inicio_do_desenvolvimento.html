@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+  <style>
+    body{
+      font-family: sans-serif;
+    }
+
+    #calculator{
+      width: 200px;
+      background-image: linear-gradient(#b7b7b7, #9c9c9c);
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,.8);
+      margin: 15px auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 5px;
+      grid-template-rows: auto repeat(5, 40px);
+    }
+
+    button{
+      padding: .25em;
+    }
+
+    #display{
+      padding: 10px;
+      font-size: 1.4em;
+      text-align: right;
+      background-image: linear-gradient(#c5c5c5, #e0e0e0);
+      box-shadow: inset 3px 2px 0 white;
+      margin-bottom: 15px;
+      grid-column: 1/ -1;
+    }
+
+    .mais{
+      background-color: #adadad;
+      grid-row: 5 / 7;
+      grid-column: 4 / 5;    
+    }
+
+    .zero{
+      background-color: #adadad;
+      grid-column: 1 / 3;
+    }
+  </style>
+</head>
+<body>
+  <div id="calculator">
+    <div id="display">0</div>
+<button onlick="limpar()">AC</button>
+<button onlick="obterPorcento()">%</button>
+<button onlick="iniciarCalculo('*')">x</button>
+<button onlick="iniciarCalculo('/')">/</button>
+<button onlick="iniciarDigito('7')">7</button>
+<button onlick="iniciarDigito('8')">8</button>
+<button onlick="iniciarDigito('9')">9</button>
+<button onlick="finalizarCalculo()">=</button>
+<button onlick="iniciarDigito('4')">4</button>
+<button onlick="iniciarDigito('5')">5</button>
+<button onlick="iniciarDigito('6')">6</button>
+<button onlick="iniciarCalculo('-')">-</button>
+<button onlick="iniciarDigito('1')">1</button>
+<button onlick="iniciarDigito('2')">2</button>
+<button onlick="iniciarDigito('3')">3</button>
+<button onlick="iniciarCalculo('+')" class="mais">+</button>
+<button onlick="incluirDgito('0')" class="zero">0</button>
+<button onlick="incluirPonto()">,</button>    
+  </div>
+
+  <script>
+    let n1 = '0'
+    let n2 = ''
+    let operacao = null
+
+    function incluirDgito(digito) {
+      if (n1 === '0') {
+        n1 = digito
+      } else {
+        n1 += digito
+      }
+
+      mostrarNoDisplay(n1)
+    }
+
+    
+  </script>
+</body>
+</html>
