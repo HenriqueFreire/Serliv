@@ -108,9 +108,11 @@
 		}
 
 		function incluirPonto() {
-			if (n2) {
+			if (operação && n2 === '') {
+				n2 += '0.'
+			} else if (condition) {
 				n2 += '.'
-			} else {
+			} else{
 				n1 += '.'
 			}
 		}

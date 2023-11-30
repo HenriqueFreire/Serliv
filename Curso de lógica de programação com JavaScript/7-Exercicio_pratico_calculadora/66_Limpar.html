@@ -92,6 +92,14 @@
       document.getElementById('display').innerHTML = valor
     }
 
+		function limpar(){
+			n1 = '0'
+    	n2 = ''
+    	operacao = null
+			igualBtn = false
+			mostrarNoDisplay(n1)
+		}
+
     function incluirDigito(digito) {
 			if (operacao != null) {
 				n2 += digito
@@ -108,9 +116,11 @@
 		}
 
 		function incluirPonto() {
-			if (n2) {
+			if (operacao && n2 == '') {
+				n2 += '0.'
+			} else if (operacao && n2) {
 				n2 += '.'
-			} else {
+			} else{
 				n1 += '.'
 			}
 		}
