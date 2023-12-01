@@ -6,6 +6,7 @@
   <title>Loteria</title>
 </head>
 <body>
+  <h1>Loteria</h1>
   <div id="output"></div>
   <script>
     let sorteados = []
@@ -29,6 +30,9 @@
         }
       }
 
+      sorteados = sorteados.sort(function (a, b) {
+        return Number(a) - Number(b);
+      })
       numero = sorteados.join(' - ')
       imprimeSortiados(numero)
     }

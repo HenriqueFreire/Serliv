@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Par ou ímpar</title>
+  <style>
+    body{
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Jogo do par ou ímpar</h1>
+  <p>
+    Digite um número de 0 à 5
+    <input type="number" id="meuNumero" min="0" max="5">
+  </p>
+<label><input type="radio" name="opção" value="par" checked>Par</label><br>
+<label><input type="radio" name="opção" value="ímpar">ímpar</label><br><br><br>
+<button onclick="jogar()">Jogar</button>
+<script>
+let nComputador = null
+let nJogador = null
+let minhaEscolha = 'par'
+
+function sortear(max) {
+  return Math.floor(Math.random * max)
+}
+
+function verificarResultado(resultado) {
+  if (minhaEscolha === resultado) {
+    alert('Você ganhou')
+  } else {
+    alert('Você perdeu')
+  }
+}
+
+function jogar() {
+  nJogador = parseInt(document.getElementById('meuNumero').value)
+  nComputador = sortear(5)
+  minhaEscolha = document.querySelector('input[type="radio"]:checked').value
+
+  const total = nJogador + nComputador
+  const resultado = total % 2 === 0 ? 'par' : 'ímpar'
+  
+  verificarResultado(resultado)
+}
+</script>  
+</body>
+</html>
