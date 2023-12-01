@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loteria</title>
+</head>
+<body>
+  <div id="output"></div>
+  <script>
+    let sorteados = []
+
+    function sortear() {
+      return Math.floor(Math.random() * 60)
+    }
+
+    function imprimeSortiados(msg) {
+      document.getElementById('output').innerHTML = 'Resultado do sorteado: ' + msg;
+    }
+
+    function verificaSorteados() {
+      let numero = null
+
+      while (sorteados.length < 6) {
+        numero = sortear()
+
+        if (sorteados.indexOf(numero) == -1) {
+          sorteados.push(numero)
+        }
+      }
+
+      numero = sorteados.join(' - ')
+      imprimeSortiados(numero)
+    }
+
+    verificaSorteados()
+
+  </script>
+</body>
+</html>
