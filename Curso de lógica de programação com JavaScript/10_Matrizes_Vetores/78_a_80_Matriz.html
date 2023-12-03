@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica de programação com Javascript</title>
+</head>
+<body>
+  <h1>Lógica de programação com Javascript</h1>
+  <div id="output"></div>
+  <script>
+    let notas = [[5,6,4,3], [2,8,5,6], [3,6,4,8], [2,8,4,9]]
+    let medias = 0
+    let total = 0
+    let msg = ''
+
+    for (let i = 0; i < notas.length; i++) {
+      msg += `Notas do ${index + 1}º Bimestre:`
+
+      for (let j = 0; j < notas[i].length; j++) {
+        total += notas[i][j]
+        msg += `${notas[i][j]},` 
+      }
+
+      medias += total / notas[i].length
+      msg += `Médias: ${total / notas[index].length}<br>`
+      total = 0
+    }
+
+    msg += `Média anual: ${medias/notas.length}`
+    document.querySelector('#output').innerHTML = msg
+    
+  </script>
+</body>
+</html>
