@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica de programação com Javascript</title>
+</head>
+<body>
+  <h1>Lógica de programação com Javascript</h1>
+  <div id="output"></div>
+  <script>
+    function Endereco(dados) {
+      this.logradouro = dados.logradouro || '';
+      this.n = dados.n || 0;
+      this.complemento = dados.complemento;
+      this.cidade = dados.cidade;
+      this.estado = dados.estado;
+      this.cep = dados.cep;  
+    }
+
+    let alunos = [
+      {nome: 'daniel', id: 112233, endereco: new Endereco({logradouro: 'rua faz de conta', n: 2, complemento: 'ap 3', cidade: 'São Paulo', estado: 'SP', cep: '111111-111'})},
+      {nome: 'josé', id: 112244, endereco: new Endereco({logradouro: 'rua belezura', n: 5, cidade: 'São Paulo', cep: '22222-222'})},
+      {nome: 'joão', id: 113344, endereco: new Endereco({logradouro: 'rua belezura', n: 20, cidade: 'São Paulo', cep: '22222-222'})},
+      {nome: 'maria', id: 114444, endereco: new Endereco({logradouro: 'rua chuchu', n: 1, estado: 'RJ', cep:'22222-222'})},
+      {nome: 'ana', id: 114555, endereco: new Endereco({logradouro: 'Av belezura', n: 41, estado: 'SP', cep:'33333-33'})}
+    ]
+
+    let enderecos = []
+    
+    for (let i = 0; i < array.length; i++) {
+      enderecos[i] = alunos[i].endereco      
+    }
+
+    console.log(enderecos)
+
+    let msg = "";
+        
+    document.querySelector('#output').innerHTML = msg;
+
+  </script>
+</body>
+</html>
