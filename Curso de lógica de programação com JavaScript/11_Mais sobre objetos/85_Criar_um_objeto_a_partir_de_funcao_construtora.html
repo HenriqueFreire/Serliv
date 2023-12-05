@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica de programação com Javascript</title>
+</head>
+<body>
+  <h1>Lógica de programação com Javascript</h1>
+  <div id="output"></div>
+  <script>
+    // sintaxe formal
+    let obj = new Object()
+    obj.nome = 'objeto1'
+    obj.funcao = function () {
+      console.log('eu sou um método')
+    }
+
+    console.log(obj.nome)
+    console.log(obj.funcao)
+
+    // sintaxe literal
+    let obj2 = {
+      nome: 'objeto2',
+      funcao: function () {
+        console.log('eu sou um método2')
+      }
+    }
+
+    console.log(obj2.nome)
+    console.log(obj2.funcao)
+
+    //objetos customizados
+    function Endereco(log, n) {
+      this.logradouro = log
+      this.numero = n
+      this.enderecoCompleto = function(){
+        return `${this.logradouro}, ${this.numero}`
+      }
+    }
+
+    let endereco1 = new Endereco('Rua Tal', 5)
+
+  </script>
+</body>
+</html>

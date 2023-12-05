@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Logica de Programação Javascript</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Lógica de programação com Javascript</h1>
+        
+        <div id="output"></div>
+    </body>
+    
+    <script>
+       
+        var msg = "";
+        var henrique = {
+          nome: 'Henrique',
+          idade: '28',
+          cpf: '000.000.000-00'
+        }
+
+        for (const propriedade in henrique) {
+          console.log(propriedade)  
+          console.log(henrique[propriedade])
+        }
+
+       document.querySelector('#output').innerHTML = msg;
+        
+        
+    </script>
+</html>
