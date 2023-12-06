@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica de programação com Javascript</title>
+</head>
+<body>
+  <script>
+    function dizOla(praquem, callback) {
+      if (typeof callback === 'function') {
+        return callback(praquem)
+      }
+    }
+
+    function bomDia(praquem) {
+      console,log('bom dia', praquem)
+    }
+
+    function boaTarde(praquem) {
+      console,log('boa tarde', praquem)
+    }
+
+dizOla('Maria')
+dizOla('José', bomDia)
+dizOla('João', boaTarde)
+dizOla('Ana', function (who) {
+  console.log('boa noite', who)
+})
+
+  </script>
+</body>
+</html>
