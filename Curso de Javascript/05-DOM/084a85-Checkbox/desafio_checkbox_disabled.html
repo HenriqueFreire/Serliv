@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <h1 id="title1">Curso Javascript Completo</h1>
+    <main class="cmain" id="idmain">
+        <h2>subtitulo</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+    </main>
+    <form action="#">
+        <input type="text" id="txtNome" placeholder="nome"><br><br>
+        <input type="text" id="txtEmail" placeholder="email"><br><br>
+        <input type="checkbox" id="contrato">
+        <label for="contrato">Li e aceito o seguinte contrato</label><br><br>
+        <textarea name="" id="" cols="30" rows="10" >Este contrato nos dá direito à ...</textarea><br><br>
+        <input type="submit" value="cadastrar">
+    </form>
+    <script>
+  (function () {
+    const contrato = document.getElementById('contrato')
+
+    function verificaContrato() {
+      const termos = document.querySelector('textarea')
+      const cadastroBtn = document.querySelector('form input[type="submit"]')
+
+      if (contrato.checked) {
+        termos.readOnly = false
+        cadastroBtn.disable = false
+      }else{
+        termos.readOnly = true
+        cadastroBtn.disable = true
+      }
+    }
+    verificaContrato()
+    contrato.addEventListener('click', verificaContrato)
+  })()
+
+    </script>
+</body>
+</html>

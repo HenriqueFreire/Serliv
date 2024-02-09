@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS</title>
+</head>
+<body>
+  <form action="#">
+    <input type="text" id="txtNome" placeholder="Nome"><br><br>
+    <input type="text" id="txtEmail" placeholder="Email" readonly><br><br>
+    <label for="contrato">Li e aceito o contrato</label>
+    <input type="checkbox" id="contrato"><br><br>
+    <textarea name="" id="" cols="30" rows="10">
+      Este contrato...
+    </textarea>    
+  </form>
+  <script>
+
+    const txtNome = document.getElementById('txtNome')
+    const txtEmail = document.getElementById('txtEmail')
+    const labelContrato = document.querySelector('label[for="contrato"]')
+
+    txtNome.value = 'Graziele'
+    txtNome.disable = true
+
+    txtEmail.readOnly = true
+  </script>
+</body>
+</html>
