@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Cadastro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/formulario.css">
+</head>
+<body>
+  <div class="formCadastro__app">
+    <div class="formCadastro__container">
+      <h1 class="heading">Cadastre uma tarefa</h1>
+      <form action="#" class="formCadastro" id="shopping-add">
+        <label for="txtTitulo">Título</label>
+        <input id="txtTitulo" type="text" name="txtTitulo">
+        <label for="txtDescricao">Descrição da tarefa</label>
+        <textarea id="txtDescricao" rows="5" maxlength="255"></textarea>
+        <div id="contador" style="display: none;"> <span></span> caracteres</div>
+          <label>
+            <input type="checkbox" name="" id="chkAceito">
+            Comprometo-me a entregar esta tarefa o quanto antes
+          </label>
+          <input id="btn" type="submit" value="Adicionar">
+      </form>
+    </div>
+    <div id="feedbackMessage">
+      <p>aa</p>
+      <button><span class="fa fa-close"></span></button>
+    </div>
+  </div>
+  <script>
+    (function () {
+    'use strict';
+
+    const txtTitulo = document.getElementById("txtTitulo")
+    const btn = document.getElementById("btn")
+    const formCadastro = document.querySelector(".formCadastro")
+
+    // btn.addEventListener("click", function (e) {
+
+    // })
+
+    formCadastro.addEventListener("submit", function (e) {
+        console.log(txtTitulo.value)
+        if (!txtTitulo.value) {
+            showErrorMessage("Preencha todos os campos", function () {
+                txtTitulo.focus()
+            })
+            e.preventDefault()
+
+        }
+    })
+
+    const feedbackMessage = document.getElementById("feedbackMessage")
+    const feedbackMessageCloseBtn = feedbackMessage.getElementsByTagName("button")[0]
+
+    function showErrorMessage(msg, cb) {
+        // alert(msg)
+        // feedbackMessage.setAttribute("class", "show")
+        feedbackMessage.classList.add("show")
+        feedbackMessage.getElementsByTagName("p")[0].textContent = msg
+
+        feedbackMessageCloseBtn.focus()
+
+        function hideErrorMessage() {
+            console.log("clicado close")
+            feedbackMessage.classList.remove("show")
+
+            feedbackMessageCloseBtn.removeEventListener("click", hideErrorMessage)
+            feedbackMessageCloseBtn.removeEventListener("keyup", pressedKeyboardOnBtn)
+
+            if (typeof cb === "function") {
+                cb()
+            }
+        }
+
+        function pressedKeyboardOnBtn(e) {
+            if (e.keyCode === 27) {
+                hideErrorMessage()
+            }
+        }
+
+        feedbackMessageCloseBtn.addEventListener("click", hideErrorMessage)
+
+        feedbackMessageCloseBtn.addEventListener("keyup", pressedKeyboardOnBtn)
+    }
+
+    const txtDescricao = document.getElementById("txtDescricao")
+    const contadorContainer = document.getElementById("contador")
+    const resta = contadorContainer.getElementsByTagName("span")[0]
+    const maxima = txtDescricao.maxLength
+
+    mostrarNumero(maxima)
+
+    // contadorContainer.removeAttribute("style")
+    contadorContainer.style.display = "block"
+
+    function checkLength() {
+        let numeroLetrasDigitdas = this.value.length
+        let caractersRestantes = parseInt(maxima) - parseInt(numeroLetrasDigitdas)
+        mostrarNumero(caractersRestantes)
+    }
+
+    function mostrarNumero(n) {
+        resta.textContent = n
+    }
+    txtDescricao.addEventListener("input", checkLength)
+
+    btn.disabled = true
+
+    const chkAceito = document.getElementById("chkAceito")
+    chkAceito.addEventListener("change", function () {
+        btn.disabled = !this.checked
+    })
+})()
+  </script>
+</body>
+</html
