@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    
+    // var name = 'Henrique'
+    // const name2 = 'Henrique 2'
+
+    function teste(str, n){
+      console.log(this.name)
+      // console.log(this.name2)
+      console.log(str, n)
+    }
+
+    teste.call({name: 'Naria'}, 'string, 20')
+    teste.apply({name: 'João'}, [' da Silva', 28])
+    teste.call({name: 'João'}, ...[' da Silva', 28])
+
+    const teste2 = teste.bind({name: 'Joana'})
+
+    teste2("Joaquina", 30)
+    teste("Manuela", 40)
+
+    document.addEventListener('click', teste2)
+
+  </script>
+</body>
+
+</html>
