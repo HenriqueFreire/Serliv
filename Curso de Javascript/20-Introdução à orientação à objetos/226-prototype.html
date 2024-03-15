@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Animal(tipo) {
+      if(tipo) this.tipo = tipo    
+    }
+
+    let dog = new Animal('mamifero')
+    console.log(Animal.prototype)
+
+    Animal.prototype.obterTipo = function() {
+      return this.tipo
+    }
+
+    Animal.prototype.tipo = 'desconhecido'
+
+    let cat = new Animal('mamifero')    
+    let turtle = new Animal('réptil')
+    let fish = new Animal()
+
+  </script>
+</body>
+</html>
+
