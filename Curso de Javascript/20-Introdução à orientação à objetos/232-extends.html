@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    // ES5
+    function Animal(tipo) {
+      if(tipo) this.tipo = tipo    
+    }
+
+    function Cachorro(nome) {
+			this.nome = nome
+			Animal.call(this, 'mamífero')
+			this.constructor = Cachorro
+		}
+
+		Cachorro.prototype = new Animal('mamífero')
+
+		let dog = new Cachorro('Dog')
+
+    Animal.prototype.obterTipo = function() {
+      return this.tipo
+    }
+
+    Animal.prototype.tipo = 'desconhecido'
+
+    // ES6
+    class AnimalC {
+      constructor(tipo) {
+        if (tipo){
+            this.tipo = tipo
+        } 
+      }
+
+      obterTipo() {
+        return this.tipo
+      }
+    }
+
+		class GatoC extends AnimalC {
+			constructor(nome) {
+				super('mamífero')
+				this.nome = nome
+			}
+		}
+
+    AnimalC.prototype.tipo = 'desconhecido'
+
+    let frog = new AnimalC('anfíbio')
+    let penguin = new AnimalC()
+		let mingal = new GatoC('Mingal')
+
+    console.log(frog)
+    console.log(mingal)
+
+    console.log(typeof frog)
+    
+    console.log(frog.obterTipo())
+    
+		console.log(Animal)    
+    console.log(AnimalC)
+
+  </script>
+</body>
+</html>
+
