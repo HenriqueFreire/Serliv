@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 19</title>
+</head>
+<body>
+  <h1>Boolean, Number, String e typeof</h1>
+  <script>
+    let mensagem = 'mensagem de "texto"';
+    console.log(mensagem);
+    let numero = 10;
+
+    console.log(typeof 0);
+    console.log(typeof "0");
+    console.log(typeof String(0));
+
+    let isValid = true;
+    console.log(isValid);
+
+    // 0, null, false, NaN, undefined, "" são falsy
+    // qualquer outro valor é truthy
+    console.log(Boolean(0));
+
+    let naoDefinido;
+    console.log(naoDefinido);
+    
+    naoDefinido = null;
+    console.log(naoDefinido);
+    
+    naoDefinido = 0;
+    console.log(naoDefinido);
+
+    let n = parseFloat('a');
+    console.log(n);
+    console.log(typeof n);
+    console.log(isNaN(n));
+    console.log("--------------------");
+    console.log(typeof undefined);
+    console.log(typeof null);
+    console.log(typeof 0);
+    console.log(typeof "");
+    console.log(typeof true);
+    console.log("--------------------");
+    console.log(typeof (10.5.toString()));
+    console.log(typeof (10..toString()));
+    console.log(typeof (10 .toString()));
+    console.log(typeof (10).toString());
+
+  </script>
+</body>
+</html>
