@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let n1 = parseFloat(prompt('Digite um número de 0 à 10'))
+        let n2 = parseFloat(prompt('Digite outro número de 0 à 10'))
+				
+        if ((!isNaN(n1) && !isNaN(n2)) && (n1 >= 0 && n1 <= 10) && (n2 >= 0 && n2 <= 10)) {
+            alert(`A média é: ${(n1 + n2) / 2}`)
+        } else {
+            alert("O valor digitado é inválido")
+        }
+
+        alert("Fim de execução")
+    </script>
+</body>
+</html>
