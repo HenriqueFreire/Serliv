@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    let dadoA = null;
+    let dadoB = null;
+    let contador = 0;
+
+    while (dadoA !== dadoB) {
+      dadoA = Math.floor(Math.random() * 6) + 1;
+      dadoB = Math.floor(Math.random() * 6) + 1;
+      console.log(`Dado A: ${dadoA} | Dado B: ${dadoB}`);
+      contador++;
+    }
+
+    console.log(`Você precisou de ${contador} jogadas para os dados ser iguais`);
+    
+  </script>
+</body>
+</html>
