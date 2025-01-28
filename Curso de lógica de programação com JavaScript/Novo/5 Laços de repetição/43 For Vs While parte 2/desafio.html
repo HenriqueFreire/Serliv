@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+		let n = parseFloat(prompt("Digite um número"))
+		
+    if (!isNaN(n)) {
+      for(let counter = 0; counter <= 1000; counter++) {
+        document.write(n + " x " + counter + " = " + n * counter + "<br>")
+        if (counter % 10 == 0 && counter != 0) {
+          document.write("<hr>")
+        }
+      }
+    } else {
+     alert("Digite apenas números") 
+    }
+  </script>
+</body>
+</html>

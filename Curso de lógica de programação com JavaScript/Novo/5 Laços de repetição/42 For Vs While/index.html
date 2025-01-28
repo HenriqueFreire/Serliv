@@ -8,19 +8,18 @@
 <body>
   <script>
 
-    let dadoA = null;
-    let dadoB = null;
+    let dadoA = 6;
+    let dadoB = 6;
     let contador = 0;
 
-    while (dadoA !== dadoB) {
+    do {
       dadoA = Math.floor(Math.random() * 6) + 1;
       dadoB = Math.floor(Math.random() * 6) + 1;
       console.log(`Dado A: ${dadoA} | Dado B: ${dadoB}`);
       contador++;
-    }
+    } while (dadoA !== dadoB);
 
     console.log(`Você precisou de ${contador} jogadas para os dados ser iguais`);
-    
   </script>
 </body>
 </html>
