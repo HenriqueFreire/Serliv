@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    for (let i = 1; i <= 10; i++) {
+      console.log(i);
+      if (i === 5) {
+        console.log("Break"); 
+        break; // interrompe o loop quando i é igual a 5
+      }
+    }
+
+    for (let i = 1; i <= 10; i++) {
+      if (i === 5) {
+        console.log("Continue");
+        continue; // pula a iteração quando i é igual a 5
+      }
+      console.log(i);
+    }
+
+  </script>
+</body>
+</html>
