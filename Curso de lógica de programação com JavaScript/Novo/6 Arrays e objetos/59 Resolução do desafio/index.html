@@ -8,14 +8,16 @@
 <body>
   <script>
 
-    const numeros = [1, 2, 3, 4, 5]
-    let somaDosNumeros = 0
+    const numeros = [1, 2, 3, "4", 5, "a", 32, "7", "b", 10]
+    let soma = 0
 
     for(let i = 0; i < numeros.length; i++){
-      somaDosNumeros += numeros[i]
+      if(!isNaN(numeros[i]) && typeof numeros[i] === 'number'){
+        soma += numeros[i]
+      }
     }
 
-    alert(somaDosNumeros)
+    alert(soma)
 
   </script>
 </body>
