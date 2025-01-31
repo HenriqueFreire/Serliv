@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    let quantasVezesOsDadosForamJogados = 0;
+    let somaDosDadosPar = 0
+    
+    while (true) {
+      let dado1 = Math.floor(Math.random() * 6) + 1
+      let dado2 = Math.floor(Math.random() * 6) + 1
+      
+      console.log(dado1, dado2, quantasVezesOsDadosForamJogados, somaDosDadosPar)
+      
+      if (dado1 === dado2) {
+        continue        
+      }
+
+      quantasVezesOsDadosForamJogados++
+      
+      if ((dado1 + dado2) % 2 === 0) {
+        somaDosDadosPar++
+      }      
+
+      if (somaDosDadosPar > 10) {
+        break
+      }
+    }
+
+  </script>
+</body>
+</html>
