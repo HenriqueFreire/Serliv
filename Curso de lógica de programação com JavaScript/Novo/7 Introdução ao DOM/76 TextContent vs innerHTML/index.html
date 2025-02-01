@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="titulo">Um título qualquer</h1>
+  <p id="paragrafo1"><i>Lorem ipsum dolor</i> sit amet consectetur adipisicing elit.</p>
+  <p id="paragrafo2"><i>Lorem ipsum dolor</i> sit amet consectetur adipisicing elit.</p>
+  <hr>
+  <input type="text" id="user" value="Digite aqui">
+  <script>
+    let titulo = document.getElementById('titulo')
+    let paragrafo1 = document.getElementById('paragrafo1')
+    let paragrafo2 = document.getElementById('paragrafo2')
+
+    paragrafo1.textContent = '<b>Olá, mundo<b>!'
+    paragrafo2.innerHTML = '<b>Olá, mundo<b>!'
+  </script>
+</body>
+</html>
