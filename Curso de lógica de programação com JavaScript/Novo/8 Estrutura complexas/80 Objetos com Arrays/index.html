@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="output"></div>
+  <script>
+    
+    const output = document.getElementById('output');
+    const aluno = {
+      nome: 'João',
+      notas: [7, 8, 9, 6]
+    }
+
+    let media = null
+    let situacao = null
+    for (let i = 0; i < aluno.notas.length; i++) {
+      media += aluno.notas[i]
+    }
+
+    media = media / aluno.notas.length;
+
+    if (media >= 7) {
+      situacao = 'Aprovado'
+    } else {
+      situacao = 'Reprovado'
+    }
+
+    output.innerHTML = `
+    <h2>Aluno: ${aluno.nome}</h2>
+    <p>Notas:</p>
+    <ul>
+      <li>Nota 1: ${aluno.notas[0]}</li>
+      <li>Nota 2: ${aluno.notas[1]}</li>
+      <li>Nota 3: ${aluno.notas[2]}</li>
+      <li>Nota 4: ${aluno.notas[3]}</li>
+    </ul>
+    <p>Média: ${media}</p>
+    <p>Situação: ${situacao}</p>`
+
+  </script>
+</body>
+</html>
