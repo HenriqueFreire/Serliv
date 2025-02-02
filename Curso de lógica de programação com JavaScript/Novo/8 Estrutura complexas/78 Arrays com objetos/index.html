@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Arrays com Objetos</h1>
+  <ul id="lista"></ul>
+  <script>
+    const listaDeEmails = document.querySelector('#lista')
+    let pessoas = [
+      {
+        nome: 'João',
+        email: 'joao@email.com',
+        idade: 25,
+        profissao: 'programador'
+      },
+      {
+        nome: 'Maria',
+        email: 'maria@email.com',
+        idade: 30,
+        profissao: 'designer'
+      },
+      {
+        nome: 'Pedro',
+        email: 'pedro@email.com',
+        idade: 20,
+        profissao: 'estudante'
+      }
+    ]
+    for (let i = 0; i < pessoas.length; i++) {
+      const pessoa = pessoas[i]
+      listaDeEmails.innerHTML += `<li>${pessoa.nome}: ${pessoa.email}</li>`
+    }
+
+  </script>
+</body>
+</html>
