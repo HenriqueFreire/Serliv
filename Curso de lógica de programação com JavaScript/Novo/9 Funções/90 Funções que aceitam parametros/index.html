@@ -7,20 +7,19 @@
 </head>
 <body>
   <input type="number" id="raio" placeholder="raio">
-  <button id="calcular" onclick="calcularCircunferencia()">Calcular</button>
+  <button id="calcular" onclick="calcularCircunferencia(raio, resultado)">Calcular</button>
   <p id="resultado"></p>
   <script>
-  const base = document.getElementById('base');
+    const raio = document.getElementById('raio');
     const altura = document.getElementById('altura');
     const calcular = document.getElementById('calcular');
     const resultado = document.getElementById('resultado');
 
-    function calcularCircunferencia() {
+    function calcularCircunferencia(raio, resultado) {
       const area = Math.PI * (raio.value ** 2);
       resultado.innerHTML = '';
       resultado.innerHTML = `A área do triângulo é: ${area}`;
-      base.value = '';
-      altura.value = '';
+      raio.value = '';
     }
 
   </script>
