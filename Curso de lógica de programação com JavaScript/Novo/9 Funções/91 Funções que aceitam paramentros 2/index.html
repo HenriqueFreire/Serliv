@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <label>Raio
+    <input type="number" id="raio">
+  </label>
+  <button id="calcular">Calcular</button>
+  <br>
+  <output id="output"></output>
+  <script>
+
+    const raio = document.getElementById('raio')
+    const calcular = document.getElementById('calcular')
+    const output = document.getElementById('output')
+
+    function mostrarArea(raio, output) {
+      let area = Math.PI * Math.pow(Number(raio.value), 2)
+      output.value = ""
+      output.value = `A área do círculo é ${area.toFixed(2)}`
+    }
+
+    calcular.addEventListener('click', () => mostrarArea(raio, output))
+
+  </script>
+</body>
+</html>

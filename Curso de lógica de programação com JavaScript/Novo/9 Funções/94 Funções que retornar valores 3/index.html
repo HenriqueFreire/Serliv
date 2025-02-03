@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <label>Raio
+    <input type="number" id="raio">
+  </label>
+  <br>
+  <button onclick="mostrarAreaDoPromptAlert()">Calcular a área do prompt e mostrar no alert</button>
+  <br>
+  <button onclick="mostrarAreaDoinputAlert()"> Calcular a área do input e mostrar no alert</button>
+  <br>
+  <button onclick="mostrarAreaDoPromptOutput()">Calcular a área do prompt e mostrar no output</button>
+  <br>
+  <button onclick="mostrarAreaDoinputOutput()"> Calcular a área do input e mostrar no output</button>
+  <br>
+  <output id="output"></output>
+  <script>
+    const raio = document.querySelector('#raio')
+    const output = document.querySelector('#output')
+
+    function mostrarArea(valorDoRaio) {
+      const area = Math.PI * Math.pow(valorDoRaio, 2)
+      return `A área da circunferência de raio ${valorDoRaio} é ${area}`
+    }
+    
+    function mostrarAreaDoPromptAlert() {
+      let raio = Number(prompt('Digite o raio da circunferência'))
+      alert(mostrarArea(raio))
+    }
+    function mostrarAreaDoinputAlert() {
+      alert(mostrarArea(raio.value))
+    }
+    function mostrarAreaDoPromptOutput() {
+      let raio = Number(prompt('Digite o raio da circunferência'))
+      output.value = mostrarArea(raio)
+    }
+    function mostrarAreaDoinputOutput() {
+      output.value = mostrarArea(raio.value)
+    }
+
+
+  </script>
+</body>
+</html>
