@@ -6,13 +6,24 @@
   <title>Document</title>
 </head>
 <body>
+  <input type="number" id="numero">
   <button onclick="tabuada()">Tabuada</button>
+  <button onclick="limparTabuada()">Limpar</button>
   <div id="display"></div>
   <script>
 
+    let display = document.getElementById("display")
+    let numero = document.getElementById("numero")
+
+    function limparTabuada() {
+      display.innerHTML = ""
+    }
+
     function tabuada() {
-      let multiplicador = Number(prompt("Digite um número para ver sua tabuada"))
+      let multiplicador = Number(numero.value)
       let resultado = ""
+
+      limparTabuada()
 
       if (isNaN(multiplicador)) {
         alert("Digite um número válido")

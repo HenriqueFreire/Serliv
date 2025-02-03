@@ -7,8 +7,15 @@
 </head>
 <body>
   <button onclick="tabuada()">Tabuada</button>
+  <button onclick="limparTabuada()"></button>
   <div id="display"></div>
   <script>
+
+    let display = document.getElementById("display")
+
+    function limparTabuada() {
+      display.innerHTML = ""
+    }
 
     function tabuada() {
       let multiplicador = Number(prompt("Digite um número para ver sua tabuada"))
@@ -20,7 +27,7 @@
         for (let i = 1; i <= 100; i++) {
           resultado += `${multiplicador} x ${i} = ${multiplicador * i} <br>`
         }
-        document.getElementById("display").innerHTML = resultado
+        display.innerHTML = resultado
       }
     }
     
