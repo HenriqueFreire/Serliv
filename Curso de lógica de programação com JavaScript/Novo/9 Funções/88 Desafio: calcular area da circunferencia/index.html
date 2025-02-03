@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="number" id="raio" placeholder="raio">
+  <button id="calcular" onclick="calcularCircunferencia()">Calcular</button>
+  <p id="resultado"></p>
+  <script>
+  const base = document.getElementById('base');
+    const altura = document.getElementById('altura');
+    const calcular = document.getElementById('calcular');
+    const resultado = document.getElementById('resultado');
+
+    function calcularCircunferencia() {
+      const area = Math.PI * (raio.value ** raio.value);
+      resultado.innerHTML = '';
+      resultado.innerHTML = `A área do triângulo é: ${area}`;
+      base.value = '';
+      altura.value = '';
+    }
+
+  </script>
+</body>
+</html>
