@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="somar()">Somar</button>
+  <br>
+  <p id="mensagem"></p>
+  <script>
+
+    function somar() {
+      const mensagem = document.getElementById('mensagem')
+      let numero1 = Number(prompt('Digite o primeiro número'))
+      let numero2 = Number(prompt('Digite o segundo número'))
+      
+      if(!isNaN(numero1) && !isNaN(numero2)) {
+        mensagem.innerHTML = `A soma de ${numero1} e ${numero2} é ${numero1 + numero2}`
+      } else {
+        mensagem.innerHTML = 'Digite apenas números'
+      }
+    }
+
+  </script>  
+</body>
+</html>
