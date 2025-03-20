@@ -36,3 +36,13 @@ class pilha {
   }
 }
 
+const minhaPilha = new pilha(5);
+
+try {
+    for (let i = 0; i < 10; i++) {
+        minhaPilha.adicionar(i);
+        console.log(`Adicionado: ${i}`);
+    }
+} catch (error) {
+    console.error(error.message); // A pilha está cheia
+}
