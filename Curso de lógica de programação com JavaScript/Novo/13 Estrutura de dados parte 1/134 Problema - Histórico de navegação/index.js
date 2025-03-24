@@ -3,11 +3,11 @@ class FilaCircular {
     this.tamanho = tamanho;
     this.fila = new Array(tamanho);
     this.frente = -1;
-    this.tras = -1;
+    this.volta = -1;
   }
 
   estaCheia() {
-    return (this.tras + 1) % this.tamanho === this.frente;
+    return (this.volta + 1) % this.tamanho === this.frente;
   }
 
   estaVazia() {
@@ -18,10 +18,10 @@ class FilaCircular {
     if (this.estaCheia()) {
       this.frente = (this.frente + 1) % this.tamanho; // Move a frente para a próxima posição
     }
-    this.tras = (this.tras + 1) % this.tamanho;
-    this.fila[this.tras] = elemento;
+    this.volta = (this.volta + 1) % this.tamanho;
+    this.fila[this.volta] = elemento;
     if (this.frente === -1) {
-      this.frente = this.tras;
+      this.frente = this.volta;
     }
   }
 
@@ -30,9 +30,9 @@ class FilaCircular {
       return null;
     }
     const elemento = this.fila[this.frente];
-    if (this.frente === this.tras) {
+    if (this.frente === this.volta) {
       this.frente = -1;
-      this.tras = -1;
+      this.volta = -1;
     } else {
       this.frente = (this.frente + 1) % this.tamanho;
     }
@@ -47,7 +47,7 @@ class FilaCircular {
     let i = this.frente;
     while (true) {
       resultado.push(this.fila[i]);
-      if (i === this.tras) {
+      if (i === this.volta) {
         break;
       }
       i = (i + 1) % this.tamanho;

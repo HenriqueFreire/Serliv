@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histórico</title>
+</head>
+<body>
+  <button id="voltar">Voltar</button>
+  <input type="text" id="campo-de-texto">
+  <button id="adicionar">Adicionar</button>
+  <button id="avançar">Avançar</button>
+  <div id="output"></div>
+  <script>
+    
+    class Historico {
+      #ponteiro
+
+      constructor(limite) {
+        this.limite = limite || 10
+        this.fila = []
+        this.#ponteiro = -1
+      }
+
+      adicionar(item) {
+        this.fila.lenght = this.#ponteiro + 1
+
+        if (this.estaCheia()) {
+          this.fila.shift()
+          this.#ponteiro--
+        }
+
+        this.fila.push(item)
+        this.#ponteiro++
+      }
+
+      voltar() {
+        if (this.#ponteiro > 0) {
+          this.#ponteiro--
+        }
+      }
+
+      avançar() {
+        if (this.#ponteiro < this.tamanho - 1) {
+          this.#ponteiro++
+        }
+      }
+
+      estaCheia() {
+        return this.tamanho >= this.limite
+      }
+
+      get tamanho() {
+        return this.fila.length
+      }
+
+      imprimir() {
+        console.log(this.fila.toString())
+        console.log("ponteiro ",this.#ponteiro)
+      }
+    }
+
+    const historico = new Historico(5)
+  </script>
+</body>
+</html>
