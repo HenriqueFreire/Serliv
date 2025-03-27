@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histórico</title>
+</head>
+<body>
+  <button onclick="voltar()">Voltar</button>
+  <input type="text" id="input">
+  <button onclick="adicionar()">Adicionar</button>
+  <button onclick="avancar()">Avançar</button>
+  <button onclick="limpar()">Limpar</button>
+  <div id="output"></div>
+  <script>
+    
+    class Historico {
+      #ponteiro
+
+      constructor(limite) {
+        this.limite = limite || 10
+        this.fila = []
+        this.#ponteiro = -1
+      }
+
+      adicionar(item) {
+        this.fila.length = this.#ponteiro + 1
+
+        if (this.estaCheia()) {
+          this.fila.shift()
+          this.#ponteiro--
+        }
+
+        this.fila.push(item)
+        this.#ponteiro++
+      }
+
+      voltar() {
+        if (this.#ponteiro > 0) {
+          this.#ponteiro--
+          return true
+        }
+
+        return false
+      }
+
+      avançar() {
+        if (this.#ponteiro < this.tamanho - 1) {
+          this.#ponteiro++
+          return true
+        }
+
+        return false
+      }
+
+      estaCheia() {
+        return this.tamanho >= this.limite
+      }
+
+      get tamanho() {
+        return this.fila.length
+      }
+
+      imprimir() {
+        return this.fila.toString() + " ponteiro: " + this.#ponteiro + " item: " + this.fila[this.#ponteiro]
+      }
+
+      limpar() {
+        this.fila.length = 0
+        this.#ponteiro = -1
+      }
+    }
+
+    const historico = new Historico(5)
+
+    function imprimir() {
+      document.getElementById('output').textContent = historico.imprimir()
+    }
+
+    function voltar() {
+      const ok = historico.voltar()
+      if (ok) {
+        imprimir()
+      }
+    }
+
+    function avancar() {
+      const ok = historico.avançar()
+      imprimir()
+    }
+
+    function adicionar() {
+      const input = document.getElementById('input')
+      if(input.value) {
+        historico.adicionar(input.value)
+        imprimir()
+        input.value = ''
+        input.focus()
+      }
+    }    
+
+    function limpar() {
+      historico.limpar()
+      imprimir()
+      input.value = ''
+      input.focus()
+    }
+
+  </script>
+</body>
+</html>
