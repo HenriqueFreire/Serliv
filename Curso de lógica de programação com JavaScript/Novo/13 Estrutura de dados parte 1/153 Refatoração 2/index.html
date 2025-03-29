@@ -103,17 +103,29 @@
         return null
       }
 
-      remove(value) { // remove um item da lista
+      remove(value) { // remover o valor
         let current = this.head
         let prev = null
-
+     
         while (current) {
           if (current.value === value) {
             if (prev) {
               prev.next = current.next
+              
+              // Se o nó removido for o tail, atualiza o tail
+              if (current === this.tail) {
+                this.tail = prev
+              }
+
               current.next = null
             } else {
               this.head = current.next
+              
+              // Se removemos o único elemento da lista, atualiza o tail
+              if (current === this.tail) {
+                  this.tail = null
+              }
+
               current.next = null
             }
 
@@ -124,9 +136,8 @@
           prev = current
           current = current.next
         }
-
         return false
-      }
+    }
 
       insertAt(position, value) { // adiciona um item em uma posição específica da lista
         if (position >= 0 && position <= this.#size) {
@@ -226,8 +237,12 @@
     const list = new LinkedList()
 
     list.prepend(1)
+    list.append(2)
+    list.append(3)
     list.print()
-    console.log(list.indexOf(1))
+    console.log(list)
+    list.remove(3)
+    list.print()
     console.log(list)
   
   </script>
