@@ -84,11 +84,48 @@
       }
 
       shift() { // remove o primeiro item da lista
+        if (this.head) {
+          const first = this.head
+          const value = first.value
 
+          if (this.#size === 1) {
+            this.head = null
+            this.tail = null
+            this.#size = 0
+            return value
+          }
+
+          this.head = first.next
+          this.#size--
+          return value
+        }
+
+        return null
       }
 
       remove(value) { // remove um item da lista
+        let current = this.head
+        let prev = null
 
+        while (current) {
+          if (current.value === value) {
+            if (prev) {
+              prev.next = current.next
+              current.next = null
+            } else {
+              this.head = current.next
+              current.next = null
+            }
+
+            this.#size--
+            return true
+          }
+
+          prev = current
+          current = current.next
+        }
+
+        return false
       }
 
       insertAt(position, value) { // adiciona um item em uma posição específica da lista
@@ -156,8 +193,9 @@
     console.log(list)
     list.insertAt(1, 3)
     list.print() // 2 -> 3 -> 1 --- size: 3
-    console.log(list.pop()) // 1
-    list.print() // 2 -> 3 --- size: 2
+    console.log(list.remove(3)) // true
+    list.print() // 2 -> 1 --- size: 2
+    console.log(list.isEmpty()) // false
   
   </script>
 </body>
