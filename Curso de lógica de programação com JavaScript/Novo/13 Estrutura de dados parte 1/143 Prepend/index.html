@@ -26,11 +26,31 @@ class Node {
       }
 
       append(value) { // adiciona um item no final da lista
+        const newNode = new Node(value)
 
+        if (this.head === null) { // se a lista estiver vazia
+          this.head = newNode
+          this.tail = newNode
+        } else { // se a lista não estiver vazia
+          this.tail.next = newNode
+          this.tail = newNode
+        }
+        
+        this.size++
       }
 
       prepend(value) { // adiciona um item no início da lista
+        const newNode = new Node(value)
 
+        if (this.head === null) { // se a lista estiver vazia
+          this.head = newNode
+          this.tail = newNode
+        } else { // se a lista não estiver vazia
+          newNode.next = this.head
+          this.head = newNode
+        }
+
+        this.size++
       }
 
       remove(value) { // remove um item da lista
