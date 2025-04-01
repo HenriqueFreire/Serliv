@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabelas Hash</title>
+</head>
+<body>
+  <h1>Tabelas Hash</h1>
+  <script>
+
+    class HashNode {
+      constructor(key, value) {
+        this.key = key
+        this.value = value
+        this.next = null
+      }
+    }
+
+    class LinkedList {
+      #size = 0;
+      constructor() {
+        this.head = null
+        this.tail = null
+        this.#size = 0
+      }
+
+      append(key, value, replace) { // adiciona um item no final da lista
+        let current = this.head
+
+        while (current) {
+          if (current.key === key) {
+            if (replace) {
+              current.value = value
+            } else {
+              throw new Error('Chave duplicada')
+            }
+            return undefined
+          }
+
+          current = current.next
+        }
+        
+        const newHashNode = new HashNode(key, value)
+
+        if (this.head === null) { // se a lista estiver vazia
+          this.head = newHashNode
+          this.tail = newHashNode
+        } else { // se a lista não estiver vazia
+          const last = this.tail
+          last.next = newHashNode
+          this.tail = newHashNode
+        }
+        
+        this.#size++
+      }
+
+      getByKey(key) {
+        let current = this.head
+
+        while (current) {
+          if (current.key === key) {
+            return current.value
+          }
+
+          current = current.next
+        }
+
+        return false
+      }
+
+      remove(key) { // remover um item da lista pela chave
+        let current = this.head
+        let prev = null
+     
+        while (current) {
+          if (current.key === key) {
+            if (prev) {
+              prev.next = current.next
+              
+              // Se o nó removido for o tail, atualiza o tail
+              if (current === this.tail) {
+                this.tail = prev
+              }
+
+              current.next = null
+            } else {
+              this.head = current.next
+              
+              // Se removemos o único elemento da lista, atualiza o tail
+              if (current === this.tail) {
+                  this.tail = null
+              }
+
+              current.next = null
+            }
+
+            this.#size--
+            return true
+          }
+
+          prev = current
+          current = current.next
+        }
+        return false
+    }
+
+      isEmpty() { // retorna se a lista está vazia
+        return this.head === null
+      }
+
+      get size() { // retorna o tamanho da lista
+        return this.#size
+      }
+
+      print() { // imprime a lista
+        let current = this.head
+        let result = ''
+
+        while (current) {
+          result += current.value + ' -> '
+          current = current.next
+        }
+
+        console.log(result + " --- size: " + this.#size)
+      }
+    }
+
+    class HashTable {
+      #size
+      constructor(maxSize) {
+        this.#size = 0
+        this.table = []
+        this.max = maxSize
+      }
+
+      hash(key) {
+        let hashValue = 0
+
+        for (let i = 0; i < key.length; i++) {
+          hashValue += key.charCodeAt(i)
+        }
+
+        return hashValue % this.max
+      }
+
+      insert(key, value) {
+        
+      }
+
+      get(key) {
+        
+      }
+
+      remove(key) {
+        
+      }
+    }
+
+    const table = new HashTable(97)
+    table.insert("joao@mail.com", "João")
+    table.get("joao@mail.com")
+    table.remove("joao@mail.com")
+  
+  </script>
+</body>
+</html>
