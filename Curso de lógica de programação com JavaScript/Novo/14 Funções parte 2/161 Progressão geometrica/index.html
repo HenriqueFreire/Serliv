@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funçoes</title>
+</head>
+<body>
+  <script>
+    
+    function getPG(razão, limite, n =1) {
+      console.log(`getPG(${n})`)
+
+      if (n * razão < limite) {
+        return getPG(razão, limite, (n * razão))
+      }
+
+      console.log(`Limite atingido: ${n}`)
+    }
+
+    getPG(2, 35)
+
+  </script>
+</body>
+</html>
