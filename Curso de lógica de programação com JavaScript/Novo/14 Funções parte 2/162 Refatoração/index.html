@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funçoes</title>
+</head>
+<body>
+  <script>
+    
+    function getPG(razão, limite, n =1) {
+      return (n * razão < limite) ? getPG(razão, limite, (n * razão)) : n
+    }
+
+    console.log(getPG(2, 256))
+
+  </script>
+</body>
+</html>

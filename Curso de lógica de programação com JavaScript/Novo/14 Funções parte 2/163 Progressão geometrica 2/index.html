@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funçoes</title>
+</head>
+<body>
+  <script>
+    
+    let count1 = 0
+    let count2 = 0
+
+    function getPG1(razão, posicao) {
+      let resultado = 1
+      for (let i = 1; i < posicao; i++) {
+        resultado *= razão
+        count1++
+      }
+      return resultado
+    }
+
+    function getPG2(razão, posicao) {
+      count2++
+      if (posicao === 1) {
+        return 1
+      }
+      return razão * getPG2(razão, posicao - 1)
+    }
+
+    console.log(getPG1(2, 5))
+    console.log(count1)
+
+  </script>
+</body>
+</html>
