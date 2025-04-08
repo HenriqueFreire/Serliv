@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funçoes</title>
+</head>
+<body>
+  <script>
+    
+    function fatorial(numero) {
+      let resultado = 1
+
+      for (let i = 1; i <= numero; i++) {
+        resultado *= i
+      }
+
+      return resultado      
+    }
+
+    function fatorialRecursivo(numero) {
+      if (numero === 1) {
+        return 1
+      }
+      return numero * fatorialRecursivo(numero - 1)
+    }
+
+    console.log('Loop: ', fatorial(5)) // 120
+    console.log('Loop', fatorial(3)) // 6
+    console.log('Recursivo: ', fatorialRecursivo(5)) // 120
+    console.log('Recursivo: ', fatorialRecursivo(3)) // 6
+
+  </script>
+</body>
+</html>
