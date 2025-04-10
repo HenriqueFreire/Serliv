@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funções</title>
+</head>
+<body>
+  <script>
+    
+    // Parâmetros de função de callback
+    // Função que recebe outra função como argumento
+
+    function calcular(a, b, operacao) {
+      return operacao(a, b)
+    }
+
+    function subtrair(x, y) {
+      return x - y
+    }
+
+    calcular(3, 2, subtrair) // 1
+
+  </script>
+</body>
+</html>

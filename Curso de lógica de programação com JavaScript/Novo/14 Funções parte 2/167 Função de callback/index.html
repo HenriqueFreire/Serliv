@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funções</title>
+</head>
+<body>
+  <script>
+    
+    // Função de callback
+    // Função que recebe outra função como argumento
+
+    function calcular(a, b, operacao) {
+      return operacao(a, b)
+    }
+
+    function somar(x, y) {
+      return x + y
+    }
+
+    calcular(2, 3, somar) // 5
+    // Podemos passar a função somar como argumento para a função calcular
+    // Isso é útil quando queremos que a função calcular execute uma operação diferente
+    // sem precisar criar várias funções diferentes
+
+  </script>
+</body>
+</html>
