@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arvore</title>
+</head>
+<body>
+  <script>
+
+    class Node {
+      constructor(key) {
+        this.key = key
+        this.left = null
+        this.right = null
+      }
+    }
+
+    class BinarySearchTree{
+      constructor() {
+        this.root = null
+      }
+
+      #insertNode(node, newNode) {
+        if (newNode.key < node.key) {
+          if (node.left === null) {
+            node.left = newNode
+          } else {
+            this.#insertNode(node.left, newNode)
+          }
+        } else if (newNode.key > node.key) {
+          if (node.right === null) {
+            node.right = newNode
+          } else {
+            this.#insertNode(node.right, newNode)
+          }
+        } 
+      }
+
+      insert(key) {
+        const newNode = new Node(key)
+
+        if (this.root === null) {
+          this.root = newNode
+        } else {
+          this.#insertNode(this.root, newNode)
+        }
+      }
+
+      #searchNode(node, key) {
+        if (node === null) {
+          return false
+        }
+
+        if (key < node.key) {
+          return this.#searchNode(node.left, key)
+        } else if (key > node.key) {
+          return this.#searchNode(node.right, key)
+        } else {
+          return true
+        }
+      }
+
+      search(key){
+        return this.#searchNode(this.root, key)
+      }
+      
+    }
+
+    const bst = new BinarySearchTree()
+    bst.insert(15)
+    bst.insert(12)
+    console.log(`Buscando o número 12: ${bst.search(12)}`) // true
+
+  </script>
+</body>
+</html>
