@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grafos</title>
+</head>
+<body>
+  <script>  
+    
+    class Graph{
+      constructor(isDirected = false){
+        this.isDirected = isDirected;
+        this.vertices = {};  
+      }
+
+      addVertex(vertex){
+        if(!this.vertices[vertex]){
+          this.vertices[vertex] = [];
+        }
+      }
+
+      addEdge(vertex1, vertex2){
+        if(this.vertices[vertex1] && this.vertices[vertex2]){
+          this.vertices[vertex1].push(vertex2);
+          
+          if(!this.isDirected){
+            this.vertices[vertex2].push(vertex1);
+          }       
+        }
+        
+      }
+    }
+
+    const graph = new Graph();
+    graph.addVertex('A');
+    graph.addVertex('B');
+    graph.addVertex('C');
+    graph.addEdge('A', 'B');
+    
+  </script>
+</body>
+</html>
