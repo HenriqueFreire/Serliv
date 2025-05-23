@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grafos</title>
+</head>
+<body>
+  <script>  
+    
+    class Graph{
+      constructor(isDirected = false){
+        this.isDirected = isDirected;
+        this.vertices = {};  
+      }
+
+      addVertex(vertex){
+        if(!this.vertices[vertex]){
+          this.vertices[vertex] = [];
+        }
+      }
+
+      addEdge(vertex1, vertex2){
+        if(this.vertices[vertex1] && this.vertices[vertex2]){
+          this.vertices[vertex1].push(vertex2);
+          
+          if(!this.isDirected){
+            this.vertices[vertex2].push(vertex1);
+          }       
+        }
+      }
+
+      removeEdge(vertex1, vertex2){
+        const temp = [];
+        for(let i = 0; i < this.vertices[vertex2].length; i++){
+          if(this.vertices[vertex2][i] !== vertex1){
+            temp.push(this.vertices[vertex2][i]);
+          }
+        }
+
+        this.vertices[vertex2] = temp;
+
+        if(!this.isDirected){
+          const temp = [];
+          for(let i = 0; i < this.vertices[vertex1].length; i++){
+            if(this.vertices[vertex1][i] !== vertex2){
+              temp.push(this.vertices[vertex1][i]);
+            }
+          }
+
+          this.vertices[vertex1] = temp;
+        }
+      }
+
+      removeVertex(vertex){
+        while(this.vertices[vertex].length){
+          const adjacentVertex = this.vertices[vertex].pop();
+          this.removeEdge(vertex, adjacentVertex);
+        }
+
+        delete this.vertices[vertex];
+      }
+    }
+
+    const graph = new Graph();
+
+    graph.addVertex('A');
+    graph.addVertex('B');
+    graph.addVertex('C');
+    graph.addVertex('D');
+    graph.addVertex('E');
+
+    graph.addEdge('A', 'B');
+    graph.addEdge('B', 'C');
+    graph.addEdge('C', 'D');
+    graph.addEdge('D', 'E');
+    graph.addEdge('E', 'B');
+    graph.addEdge('A', 'C');
+
+    graph.removeVertex('A');
+    graph.removeEdge('B', 'C');
+    
+  </script>
+</body>
+</html>
