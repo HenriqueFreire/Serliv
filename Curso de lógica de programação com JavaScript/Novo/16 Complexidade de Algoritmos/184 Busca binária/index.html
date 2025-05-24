@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Busca binária</title>
+</head>
+<body>
+  <script>
+
+    function binarySearch(list, item) {
+      let low = 0;
+      let high = list.length - 1;
+      let count = 0;
+
+      while (low <= high) {
+        count++;
+        console.log(`Tentativa ${count}: ${low} - ${high}`);
+
+        const mid = parseInt((low + high) / 2);
+        const guess = list[mid];
+
+        if (guess === item) {
+          return mid;
+        }
+        if (guess > item) {
+          high = mid - 1;
+        } else {
+          low = mid + 1;
+        }
+      }
+
+      return null;
+    }
+
+    function generateOrderedList(size) {
+      const arr = [];
+      for (let i = 1; i < size; i++) {
+        arr.push(i);
+      }
+      return arr;
+    }
+
+    const list = generateOrderedList(100);
+
+    let findNumber = binarySearch(list, 101);
+    console.log(`O número 101 está na posição ${findNumber}`);
+    
+
+  </script>
+</body>
+</html>
